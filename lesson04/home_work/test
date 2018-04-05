@@ -1,0 +1,34 @@
+#----------------------------------------------------------------------------------------#
+
+lower_line = [x for x in line if x.islower()]
+
+line = list(line)
+new_line = []
+
+# line2 = [x = '.' for x in line if x.isupper()]
+line2 = []
+for x in line:
+    if x.isupper():
+        x = 0
+        line2.append(x)
+    elif x.islower():
+        line2.append(x)
+
+q = str(line2)
+s = q.split('0')
+
+
+# for x in lower_line:
+#         index = []
+#         ind = line.index(x)
+#         index.append(ind)
+#         # lower_line.remove(x)
+
+
+print(lower_line)
+# print(ind)
+# print(index)
+print(line2)
+print(s)
+# print(line, lower_line)
+# print(new_line)
