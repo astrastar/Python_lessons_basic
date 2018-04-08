@@ -13,3 +13,39 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+
+
+from libs import dir_manage as dm
+
+
+def menu():
+    print('Привет, я умею делать такие штуки:')
+    print('1. Перейти в папку')
+    print('2. Посмотреть содержимое текущей папки')
+    print('3. Удалить папку')
+    print('4. Создать папку')
+    print('5. Выход из программы')
+
+    while True:
+        try:
+            user_input = int(input('Введите желаемую команду: '))
+            if user_input == 1:
+                dirname = input('Введите нужную папку: ')
+                dm.change_dir(dirname)
+            elif user_input == 2:
+                print(dm.get_listdir())
+            elif user_input == 3:
+                name = input('Введите название папки: ')
+                dm.remove_dir(name)
+            elif user_input == 4:
+                name = input('Введите название папки: ')
+                dm.make_dir(name)
+            elif user_input == 5:
+                print('Программа завершена')
+                break
+        except ValueError:
+            print('Введена неверная команда')
+
+
+menu()
+
