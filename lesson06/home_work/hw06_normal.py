@@ -76,9 +76,17 @@ class Classroom():
 
     # получить всех учеников класса
     def get_all_class_stds(self):
-        print(f'Class {self.class_name}:')
+        print(f'Students of class {self.class_name}:')
         for student in self.students:
             print(student.fio())
+
+    def append_tchs(self, *teachers):
+        self.teachers = teachers
+
+    def get_class_tchs(self):
+        print(f'Teachers of Class {self.class_name}:')
+        for teacher in self.teachers:
+            print(teacher.fio())
 
     #
     # def get_all_class_tchs(self):
@@ -88,7 +96,11 @@ class Classroom():
 
 student = Student('Lastname', 'Name', 'Middle', 'Lastname Maria Vlad', 'Lastname Andr Nik')
 student1 = Student('Petrov', 'Petr', 'Petrivich', 'Petrova Irina Ivan', 'Petrov Petr rrr')
-class1 = Classroom('5 A', student, student1)
-teach1 = Teacher('Ivanov', 'Ivan', 'Ivanovich', 'math', class1)
+class1 = Classroom('9 C', student, student1)
+class2 = Classroom('9 B', student1)
+teach1 = Teacher('Ivanov', 'Ivan', 'Ivanovich', 'math', class1,class2)
+teach2 = Teacher('Borisov', 'Boris', 'Borisovich', 'geography')
+class1.append_tchs(teach1, teach2)
 print(class1.get_all_class_stds())
 print(Classroom.class_list)
+print(class1.get_class_tchs())
