@@ -72,6 +72,7 @@ class Classroom():
         self.class_name = class_name
         self.students = students
         Classroom.class_list.append(class_name)  # получаем список всех классов в школе
+        return Classroom.class_list.sort()
 
     # получить всех учеников класса
     def get_all_class_stds(self):
