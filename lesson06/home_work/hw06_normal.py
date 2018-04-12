@@ -56,6 +56,7 @@ class Student(Person):
         return f'Папа {self.father}'
 
 
+
 class Teacher(Person):
 
     def __init__(self, lastname, firstname, middlename, subject, *classes):
@@ -88,6 +89,10 @@ class Classroom():
         for teacher in self.teachers:
             print(teacher.fio())
 
+    def get_subjects(self, student):
+        print(f'Subjects of student {student.fio()}:')
+        for teacher in self.teachers:
+            print(teacher.subject)
     #
     # def get_all_class_tchs(self):
     #     for teacher in self.teachers:
@@ -98,9 +103,10 @@ student = Student('Lastname', 'Name', 'Middle', 'Lastname Maria Vlad', 'Lastname
 student1 = Student('Petrov', 'Petr', 'Petrivich', 'Petrova Irina Ivan', 'Petrov Petr rrr')
 class1 = Classroom('9 C', student, student1)
 class2 = Classroom('9 B', student1)
-teach1 = Teacher('Ivanov', 'Ivan', 'Ivanovich', 'math', class1,class2)
+teach1 = Teacher('Ivanov', 'Ivan', 'Ivanovich', 'math', class1, class2)
 teach2 = Teacher('Borisov', 'Boris', 'Borisovich', 'geography')
 class1.append_tchs(teach1, teach2)
 print(class1.get_all_class_stds())
 print(Classroom.class_list)
 print(class1.get_class_tchs())
+print(class1.get_subjects(student1))
