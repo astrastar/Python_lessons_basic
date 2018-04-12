@@ -17,6 +17,7 @@
 # 5. Получить список всех Учителей, преподающих в указанном классе
 
 
+
 class Person():
 
     def __init__(self, lastname, firstname, middlename):
@@ -65,9 +66,12 @@ class Teacher(Person):
 
 class Classroom():
 
+    class_list = []
+
     def __init__(self, class_name, *students):
         self.class_name = class_name
         self.students = students
+        Classroom.class_list.append(class_name)  # получаем список всех классов в школе
 
     # получить всех учеников класса
     def get_all_class_stds(self):
@@ -86,3 +90,4 @@ student1 = Student('Petrov', 'Petr', 'Petrivich', 'Petrova Irina Ivan', 'Petrov 
 class1 = Classroom('5 A', student, student1)
 teach1 = Teacher('Ivanov', 'Ivan', 'Ivanovich', 'math', class1)
 print(class1.get_all_class_stds())
+print(Classroom.class_list)
